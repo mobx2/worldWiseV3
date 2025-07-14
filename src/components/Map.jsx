@@ -21,8 +21,6 @@ function Map() {
 
   const [mapPosition, setMapPosition] = useState([40, 0]);
 
-  const [hasInitialPosition, setHasInitialPosition] = useState(false);
-
   const {
     isLoading: isLoadingPosition,
     position: geoLocationPosition,
@@ -32,18 +30,13 @@ function Map() {
   const { mapLat, mapLng } = UseUrlLocation();
 
   useEffect(() => {
-    if (geoLocationPosition && !hasInitialPosition) {
+    if (geoLocationPosition)
       setMapPosition([geoLocationPosition.lat, geoLocationPosition.lng]);
-      setHasInitialPosition(true);
-    }
-  }, [geoLocationPosition, hasInitialPosition]);
+  }, [geoLocationPosition]);
 
   useEffect(() => {
-    if (mapLat && mapLng && !hasInitialPosition) {
-      setMapPosition([mapLat, mapLng]);
-      setHasInitialPosition(true);
-    }
-  }, [mapLat, mapLng, hasInitialPosition]);
+    if (mapLat && mapLng) setMapPosition([mapLat, mapLng]);
+  }, [mapLat, mapLng]);
 
   return (
     <div className={styles.mapContainer}>
@@ -54,7 +47,8 @@ function Map() {
       )}
       <MapContainer
         className={styles.map}
-        center={mapPosition}
+        // center={mapPosition}
+        center={[parseFloat(mapLat) || 40, parseFloat(mapLng) || 0]}
         zoom={6}
         scrollWheelZoom={true}
       >
@@ -84,9 +78,7 @@ function Map() {
 function ChangeCenter({ position }) {
   const map = useMap();
 
-  useEffect(() => {
-    map.setView(position);
-  }, [position, map]);
+  map.setView(position);
 
   return null;
 }
