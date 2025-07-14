@@ -6,9 +6,9 @@ import styles from "./CityList.module.css";
 
 import { useCities } from "../context/CitiesContext";
 
-// ===============
-// ==> Context <==
-// ===============
+// =======================
+// ======> Context <======
+// =======================
 
 import CityItem from "./CityItem";
 import Spinner from "./Spinner";
