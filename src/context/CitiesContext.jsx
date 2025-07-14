@@ -38,7 +38,7 @@ function CitiesProvider({ children }) {
 
       setCurrentCity(data);
     } catch (err) {
-      alert("There was an error loading data...");
+      throw new Error("There was an error loading data...");
     } finally {
       setIsLoading(false);
     }
