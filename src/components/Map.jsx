@@ -27,8 +27,9 @@ function Map() {
     getPosition,
   } = useGeolocation();
 
-  const { mapLat, mapLng } = UseUrlLocation();
+  const { lat: mapLat, lng: mapLng } = UseUrlLocation();
 
+  console.log(mapLat, mapLng);
   useEffect(() => {
     if (geoLocationPosition)
       setMapPosition([geoLocationPosition.lat, geoLocationPosition.lng]);
@@ -48,7 +49,7 @@ function Map() {
       <MapContainer
         className={styles.map}
         // center={mapPosition}
-        center={[parseFloat(mapLat) || 40, parseFloat(mapLng) || 0]}
+        center={[mapLat || 40, mapLng || 0]}
         zoom={6}
         scrollWheelZoom={true}
       >
