@@ -14,8 +14,6 @@ import City from "./components/City";
 import Form from "./components/Form";
 
 function App() {
-  // console.log(cities);
-
   return (
     <CitiesProvider>
       <BrowserRouter>

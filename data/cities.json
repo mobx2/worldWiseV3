@@ -1,16 +1,3 @@
 {
-  "cities": [
-    {
-      "id": "af5c",
-      "cityName": "Tella-Sin",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2025-07-15T19:07:49.143Z",
-      "notes": "",
-      "position": {
-        "lat": "42.61779143282346",
-        "lng": "0.15380859375000003"
-      }
-    }
-  ]
+  "cities": []
 }
