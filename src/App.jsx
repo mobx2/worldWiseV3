@@ -13,6 +13,7 @@ import CountryList from "./components/CountryList";
 import City from "./components/City";
 import Form from "./components/Form";
 import { AuthProvider } from "./context/FakeAuthContext";
+import ProtectedRoute from "./pages/ProtectedRoute";
 
 function App() {
   return (
@@ -33,7 +34,14 @@ function App() {
             <Route path="login" element={<Login />} />
 
             {/* Application Route */}
-            <Route path="app" element={<AppLayout />}>
+            <Route
+              path="app"
+              element={
+                <ProtectedRoute>
+                  <AppLayout />
+                </ProtectedRoute>
+              }
+            >
               {/* Application Nested Route (Index Cities) */}
               <Route index element={<Navigate replace to="cities" />} />
 

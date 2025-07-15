@@ -16,7 +16,7 @@ function reducer(state, action) {
         isAuthenticated: true,
       };
 
-    case "loguot":
+    case "logout":
       return {
         ...state,
         user: null,
